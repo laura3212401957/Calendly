@@ -1,23 +1,26 @@
 :root {
-  /* Paleta de Alto Contraste: Coral Vibrante y Oscuro Suave */
-  --primary: #ff7f50; /* Naranja Coral vibrante */
-  --primary-dark: #e06f40; /* Coral más oscuro para hover */
-  --accent: #ffb57f; /* Tono más claro del coral para acento */
+  /* Paleta Estilo Calendly: Azul/Púrpura y Claro Minimalista */
+  --primary: #0069ff; /* Azul vibrante / Púrpura de acción */
+  --primary-dark: #004dcc; /* Azul más oscuro para hover */
+  --accent: #e5f0ff; /* Tono muy claro del azul para acento de fondo */
 
-  /* Esquema Oscuro Suave */
-  --background: #1e1e1e; /* Fondo muy oscuro */
-  --surface: #2b2b2b; /* Tarjetas/Menú de color oscuro */
-  --text-dark: #f0f0f0; /* Texto claro principal */
-  --text-medium: #b0b0b0; /* Gris medio para descripciones */
-  --text-light: #707070; /* Gris oscuro para detalles */
-  --border-light: #444444; /* Bordes sutiles en oscuro */
-  --shadow-subtle: rgba(0, 0, 0, 0.4);
-  --focus-ring: rgba(255, 127, 80, 0.5);
+  /* Esquema Claro Minimalista */
+  --background: #f7f9fb; /* Fondo muy claro, casi blanco */
+  --surface: #ffffff; /* Tarjetas/Menú: Blanco puro */
+  --text-dark: #1a1a1a; /* Texto principal oscuro */
+  --text-medium: #4a4a4a; /* Gris medio para descripciones */
+  --text-light: #888888; /* Gris claro para detalles */
+  --border-light: #e0e0e0; /* Bordes sutiles en claro */
+  --shadow-subtle: rgba(0, 0, 0, 0.08); /* Sombra muy suave */
+  --focus-ring: rgba(0, 105, 255, 0.3); /* Anillo de enfoque azul translúcido */
 
-  /* Estados - Ajustados para el fondo oscuro */
-  --success: #38a169;
-  --warning: #f6ad55;
-  --danger: #e53e3e;
+  /* Estados - Ajustados para el fondo claro */
+  --success: #05884e;
+  --warning: #cc8400;
+  --danger: #d00000;
+  --success-bg: #d4f7e5;
+  --warning-bg: #fff0d2;
+  --danger-bg: #ffdbdb;
 }
 
 * {
@@ -39,14 +42,16 @@ body {
   min-height: 100vh;
 }
 
+/* --- Menú de Navegación (Header) --- */
 #menu {
   background: var(--surface);
-  padding: 0.8rem 1.5rem;
-  box-shadow: 0 4px 12px var(--shadow-subtle);
-  margin-bottom: 2.5rem;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 1px 4px var(--shadow-subtle);
+  margin-bottom: 3rem; /* Incrementado el margen */
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid var(--border-light); /* Borde sutil */
 }
 
 .menu-public, .menu-logged {
@@ -67,7 +72,7 @@ body {
 
 .menu-logged nav {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
@@ -75,11 +80,11 @@ body {
     background: transparent;
     color: var(--text-medium);
     border: none;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.95rem;
+    padding: 0.5rem 0; /* padding solo vertical para el borde inferior */
+    font-size: 1rem;
     font-weight: 500;
     box-shadow: none;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease, border-color 0.2s ease;
     min-width: unset;
 }
 
@@ -93,68 +98,70 @@ body {
 .menu-logged nav button.active {
     color: var(--primary);
     font-weight: 600;
-    border-bottom: 2px solid var(--primary);
+    border-bottom: 3px solid var(--primary); /* Borde más visible */
     border-radius: 0;
 }
 
 .menu-buttons {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem; /* Reducido el gap */
   flex-wrap: wrap;
 }
 
 .menu-public h1, .menu-logged h1 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 800;
   color: var(--primary);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   margin: 0;
   letter-spacing: -0.05em;
 }
 
+/* Icono actualizado al color primario */
 .menu-public h1::before, .menu-logged h1::before {
-    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="%23ff7f50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>');
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="%230069ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>');
     display: inline-block;
     vertical-align: middle;
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
 }
 
 .menu-logged p {
   color: var(--text-medium);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 500;
   margin: 0;
   padding: 0;
 }
 
+/* --- Botones Generales --- */
 button {
   background: var(--primary);
-  color: var(--background);
+  color: var(--surface); /* Texto blanco/claro */
   border: none;
-  padding: 0.75rem 1.6rem;
-  border-radius: 10px;
+  padding: 0.7rem 1.4rem;
+  border-radius: 9999px; /* Botones pill-shaped */
   cursor: pointer;
   font-size: 0.95rem;
   font-weight: 600;
-  transition: all 0.25s ease;
-  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+  letter-spacing: 0.01em;
   min-width: 100px;
-  box-shadow: 0 4px 12px rgba(255, 127, 80, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 105, 255, 0.2); /* Sombra más sutil y azulada */
 }
 
 button:hover {
   background: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(255, 127, 80, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 105, 255, 0.3);
 }
 
 button:active {
   transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(255, 127, 80, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 105, 255, 0.15);
 }
 
 .btn-secondary {
@@ -163,20 +170,22 @@ button:active {
   border: 1px solid var(--primary);
   box-shadow: none;
   font-weight: 500;
+  padding: 0.65rem 1.35rem; /* Ajuste para que el tamaño sea similar con el borde */
 }
 
 .btn-secondary:hover {
-  background: var(--border-light);
+  background: var(--accent);
   color: var(--primary-dark);
   border-color: var(--primary-dark);
   box-shadow: none;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .btn-logout {
   background: var(--text-light);
   box-shadow: none;
-  color: var(--text-dark);
+  color: var(--surface);
+  border-radius: 8px; /* Un poco más cuadrado que el primario */
 }
 
 .btn-logout:hover {
@@ -185,86 +194,85 @@ button:active {
 
 .btn-danger {
   background: var(--danger);
-  box-shadow: 0 2px 8px rgba(229, 62, 62, 0.2);
+  box-shadow: 0 2px 8px rgba(208, 0, 0, 0.2);
+  color: var(--surface);
 }
 
 .btn-danger:hover {
-  background: #c53030;
-  box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+  background: #a30000;
+  box-shadow: 0 4px 12px rgba(208, 0, 0, 0.3);
 }
 
+/* --- Contenido Principal --- */
 #content {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 1.5rem 2.5rem;
+  padding: 0 1.5rem 3rem;
 }
 
 section {
   background: var(--surface);
   padding: 2.5rem;
   border-radius: 12px;
-  box-shadow: 0 6px 20px var(--shadow-subtle);
+  box-shadow: 0 4px 15px var(--shadow-subtle); /* Sombra más suave */
   margin-bottom: 2.5rem;
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--border-light); /* Borde muy sutil */
 }
 
 h2 {
   color: var(--text-dark);
   margin-bottom: 1.5rem;
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
 h2::before {
-    content: '';
-    display: block;
-    width: 6px;
-    height: 2rem;
-    background: var(--primary);
-    border-radius: 3px;
+    /* Eliminamos el bloque de color llamativo para un estilo más limpio */
+    content: none; 
 }
 
 h3 {
-  color: var(--primary);
-  margin: 1.5rem 0 1rem;
-  font-size: 1.3rem;
+  color: var(--text-dark); /* Títulos intermedios más oscuros */
+  margin: 1.5rem 0 0.8rem;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 
+/* --- Autenticación y Formularios --- */
 .auth-container {
   max-width: 450px;
-  margin: 2.5rem auto;
+  margin: 3rem auto;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  gap: 1.4rem;
+  gap: 1.5rem;
 }
 
 input, textarea, select {
   padding: 1rem 1.2rem;
   border: 1px solid var(--border-light);
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 1rem;
   color: var(--text-dark);
-  background-color: var(--background);
+  background-color: var(--surface); /* Fondo blanco */
   transition: all 0.2s ease;
 }
 
 input:focus, textarea:focus, select:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 4px var(--focus-ring);
+  box-shadow: 0 0 0 3px var(--focus-ring); /* Anillo de enfoque sutil */
   background-color: var(--surface);
 }
 
 input:disabled {
-  background: #252525;
+  background: var(--background);
   cursor: not-allowed;
   color: var(--text-light);
 }
@@ -276,25 +284,26 @@ textarea {
 }
 
 label {
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-medium);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
   display: block;
   font-size: 0.95rem;
 }
 
+/* --- Grilla de Eventos (Eventos Disponibles) --- */
 .eventos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.8rem;
   margin-top: 2rem;
 }
 
 .evento-card {
   background: var(--surface);
   padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 6px 20px var(--shadow-subtle);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--shadow-subtle);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid var(--border-light);
   display: flex;
@@ -303,49 +312,52 @@ label {
 }
 
 .evento-card:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .evento-card h3 {
   margin-top: 0;
-  margin-bottom: 0.6rem;
-  color: var(--primary);
-  font-size: 1.5rem;
+  margin-bottom: 0.4rem;
+  color: var(--primary); /* Título del evento en el color de marca */
+  font-size: 1.6rem;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 
 .evento-card p {
     color: var(--text-medium);
-    font-size: 0.95rem;
+    font-size: 1rem;
     margin-bottom: 0.4rem;
 }
 
 .evento-card .details {
     color: var(--text-light);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     margin-top: 1rem;
     margin-bottom: 1.5rem;
     line-height: 1.4;
-    padding-left: 1rem;
-    border-left: 2px solid var(--border-light);
+    padding-left: 0;
+    border-left: none; /* Quitamos el borde izquierdo */
+    font-weight: 500;
 }
 
 .evento-card button {
   margin-top: auto;
   width: 100%;
-  padding: 0.8rem 1rem;
-  font-size: 1rem;
+  padding: 0.7rem 1rem;
+  font-size: 0.95rem;
   min-width: unset;
+  border-radius: 8px; /* Botón menos "pill" aquí */
 }
 
+/* --- Ítems de Evento (Mi Calendario) --- */
 .evento-item {
   background: var(--surface);
   padding: 1.5rem;
   border-radius: 10px;
-  margin-bottom: 1.2rem;
-  box-shadow: 0 3px 10px var(--shadow-subtle);
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
   border: 1px solid var(--border-light);
   display: flex;
   flex-direction: column;
@@ -353,73 +365,78 @@ label {
 
 .evento-item h3 {
   margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+  font-size: 1.3rem;
+  color: var(--primary-dark);
 }
 
 .evento-item p {
     color: var(--text-medium);
     font-size: 0.95rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
 
 .evento-item .actions {
     display: flex;
-    gap: 0.75rem;
+    gap: 0.6rem;
     flex-wrap: wrap;
     margin-top: 0.5rem;
 }
 
 .evento-item button {
-  padding: 0.7rem 1.4rem;
+  padding: 0.6rem 1.2rem;
   font-size: 0.9rem;
   min-width: unset;
   width: auto;
+  border-radius: 6px;
 }
 
+/* --- Disponibilidad (Días y Horarios) --- */
 .dia-disponibilidad {
-  background: var(--background);
+  background: var(--surface);
   padding: 1.8rem;
   border-radius: 10px;
   margin-bottom: 1.8rem;
   border: 1px solid var(--border-light);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .dia-disponibilidad h3 {
   margin-top: 0;
-  color: var(--primary);
-  font-size: 1.4rem;
-  margin-bottom: 1.2rem;
+  color: var(--text-dark);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .horario-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--surface);
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  margin-bottom: 0.8rem;
+  background: var(--background); /* Fondo ligeramente grisáceo */
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  margin-bottom: 0.6rem;
   border: 1px solid var(--border-light);
-  border-left: 5px solid var(--primary);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  border-left: 4px solid var(--primary); /* Borde de marca sutil */
+  box-shadow: none;
 }
 
 .horario-item span {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--text-dark);
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .horario-item button {
-  padding: 0.5rem 1.2rem;
-  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
   min-width: unset;
 }
 
+/* --- Filtros --- */
 .filtros {
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
   margin-bottom: 2rem;
   flex-wrap: wrap;
 }
@@ -428,7 +445,7 @@ label {
   background: var(--surface);
   color: var(--text-medium);
   border: 1px solid var(--border-light);
-  padding: 0.8rem 1.6rem;
+  padding: 0.7rem 1.4rem;
   font-weight: 500;
   border-radius: 8px;
   box-shadow: none;
@@ -436,7 +453,7 @@ label {
 }
 
 .filtro-btn:hover {
-  background: var(--background);
+  background: var(--accent);
   color: var(--primary);
   border-color: var(--primary);
   transform: translateY(-1px);
@@ -444,18 +461,19 @@ label {
 
 .filtro-btn.active {
   background: var(--primary);
-  color: var(--background);
+  color: var(--surface);
   border-color: var(--primary);
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(255, 127, 80, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 105, 255, 0.2);
 }
 
+/* --- Tarjeta de Reserva --- */
 .reserva-card {
   background: var(--surface);
   padding: 2rem;
   border-radius: 12px;
   margin-bottom: 2rem;
-  box-shadow: 0 4px 16px var(--shadow-subtle);
+  box-shadow: 0 4px 12px var(--shadow-subtle);
   border: 1px solid var(--border-light);
 }
 
@@ -463,80 +481,83 @@ label {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .reserva-header h3 {
   margin: 0;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: var(--text-dark);
 }
 
+/* Badges de Estado más limpios y con fondos claros */
 .estado-badge {
-  padding: 0.4rem 1rem;
-  border-radius: 8px;
-  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px; /* Pill-shaped */
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  border: 1px solid;
 }
 
-.estado-confirmada { background: #2f4f4f; color: #48bb78; }
-.estado-pendiente { background: #4a3219; color: #f6ad55; }
-.estado-cancelada { background: #451b1b; color: #e53e3e; }
-.estado-completada { background: #1a365d; color: #63b3ed; }
+.estado-confirmada { background: var(--success-bg); color: var(--success); border-color: #68d391; }
+.estado-pendiente { background: var(--warning-bg); color: var(--warning); border-color: #fbd38d; }
+.estado-cancelada { background: var(--danger-bg); color: var(--danger); border-color: #feb2b2; }
+.estado-completada { background: #d3e6ff; color: #4299e1; border-color: #90cdf4; }
 
 .reserva-info p {
-  margin: 0.8rem 0;
+  margin: 0.6rem 0;
   color: var(--text-medium);
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 .reserva-acciones {
-  margin-top: 1.5rem;
+  margin-top: 1.2rem;
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
   flex-wrap: wrap;
 }
 
 .reserva-acciones button {
-  padding: 0.7rem 1.4rem;
-  font-size: 0.95rem;
+  padding: 0.6rem 1.3rem;
+  font-size: 0.9rem;
   min-width: unset;
 }
 
 .reservar-container {
-  max-width: 700px;
+  max-width: 600px; /* Reducido para formularios enfocados */
   margin: 0 auto;
 }
 
 .reservar-container hr {
-  margin: 2.5rem 0;
+  margin: 2rem 0;
   border: none;
   border-top: 1px solid var(--border-light);
 }
 
+/* --- Estadísticas de Admin --- */
 .admin-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
   margin-bottom: 2.5rem;
 }
 
 .stat-card {
   background: var(--surface);
   color: var(--text-dark);
-  padding: 2rem;
-  border-radius: 12px;
+  padding: 1.8rem;
+  border-radius: 10px;
   text-align: left;
-  box-shadow: 0 4px 16px var(--shadow-subtle);
+  box-shadow: 0 2px 8px var(--shadow-subtle);
   border: 1px solid var(--border-light);
 }
 
 .stat-card h3 {
-  font-size: 3rem;
-  margin: 0 0 0.5rem 0;
+  font-size: 2.8rem;
+  margin: 0 0 0.4rem 0;
   color: var(--primary);
   line-height: 1;
 }
@@ -545,31 +566,33 @@ label {
   margin: 0;
   color: var(--text-medium);
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
+/* --- Pestañas de Admin --- */
 .admin-tabs {
   display: flex;
-  gap: 0.5rem;
+  gap: 0;
   margin-bottom: 1.5rem;
   border-bottom: 1px solid var(--border-light);
 }
 
 .tab-btn {
   background: transparent;
-  color: var(--text-light);
+  color: var(--text-medium);
   border: none;
   border-bottom: 3px solid transparent;
   border-radius: 0;
-  padding: 1rem 1.5rem;
+  padding: 0.8rem 1.5rem;
   font-size: 1rem;
   font-weight: 600;
   transition: all 0.2s ease;
   min-width: unset;
+  margin-bottom: -1px; /* Para que el borde activo cubra el borde inferior del contenedor */
 }
 
 .tab-btn:hover {
-  background: var(--background);
+  background: var(--accent);
   color: var(--primary);
   transform: none;
   box-shadow: none;
@@ -578,9 +601,10 @@ label {
 .tab-btn.active {
   color: var(--primary);
   border-bottom-color: var(--primary);
-  background: transparent;
+  background: var(--surface);
 }
 
+/* --- Tablas de Admin --- */
 .admin-table {
   width: 100%;
   border-collapse: separate;
@@ -589,10 +613,11 @@ label {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 8px var(--shadow-subtle);
+  border: 1px solid var(--border-light);
 }
 
 .admin-table th, .admin-table td {
-    padding: 1.2rem 1.5rem;
+    padding: 1rem 1.5rem;
     text-align: left;
     border-bottom: 1px solid var(--border-light);
     color: var(--text-dark);
@@ -602,9 +627,9 @@ label {
 .admin-table th {
   background: var(--background);
   font-weight: 600;
-  color: var(--text-dark);
+  color: var(--text-medium);
   text-transform: uppercase;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   letter-spacing: 0.05em;
 }
 
@@ -613,23 +638,23 @@ label {
 }
 
 .admin-table tr:hover {
-  background: #363636;
+  background: var(--background);
 }
 
 .admin-table button {
-  padding: 0.6rem 1.2rem;
-  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
   margin-right: 0.5rem;
   min-width: unset;
 }
 
 .badge {
   display: inline-block;
-  padding: 0.4rem 1rem;
-  border-radius: 8px;
-  font-size: 0.85rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 9999px; /* Pill-shaped */
+  font-size: 0.75rem;
   font-weight: 600;
-  background: var(--background);
+  background: var(--accent);
   color: var(--primary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -647,40 +672,42 @@ a:hover {
   text-decoration: underline;
 }
 
+/* --- Mensajes de Éxito/Error --- */
 #mensaje, #error {
-  padding: 1.2rem 1.8rem;
-  border-radius: 10px;
-  margin: 1.8rem 0;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
   font-weight: 500;
   border-left: 6px solid;
   font-size: 1rem;
 }
 
 #error {
-  background: #2b1f1f;
+  background: var(--danger-bg);
   color: var(--danger);
   border-color: var(--danger);
 }
 
 #mensaje {
-  background: #1f2b24;
+  background: var(--success-bg);
   color: var(--success);
   border-color: var(--success);
 }
 
+/* --- Media Queries (Ajustes para Móviles) --- */
 @media (max-width: 768px) {
   #menu {
-    padding: 0.6rem 1rem;
-    margin-bottom: 1.5rem;
+    padding: 0.8rem 1rem;
+    margin-bottom: 2rem;
   }
 
   .menu-public h1, .menu-logged h1 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 
   .menu-public h1::before, .menu-logged h1::before {
-      width: 24px;
-      height: 24px;
+      width: 26px;
+      height: 26px;
   }
 
   .menu-header-group {
@@ -700,7 +727,7 @@ a:hover {
 
   .menu-logged nav button {
       padding: 0.5rem 0.25rem;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       text-align: center;
   }
 
@@ -718,10 +745,14 @@ a:hover {
   }
 
   button {
-    padding: 0.6rem 0.8rem;
-    font-size: 0.85rem;
+    padding: 0.5rem 0.7rem;
+    font-size: 0.8rem;
     min-width: unset;
     width: auto;
+  }
+  
+  .btn-secondary {
+    padding: 0.45rem 0.65rem;
   }
 
   .btn-secondary, .btn-logout, .btn-danger {
@@ -729,7 +760,8 @@ a:hover {
   }
 
   h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
+    margin-bottom: 1rem;
   }
 
   h2::before {
@@ -742,18 +774,20 @@ a:hover {
 
   .eventos-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
 
   .admin-stats {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
   }
 }
 
+/* Animaciones (Mantenidas) */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(10px); /* Reducida la distancia */
   }
   to {
     opacity: 1;
@@ -762,5 +796,5 @@ a:hover {
 }
 
 section {
-  animation: fadeIn 0.6s ease-out;
+  animation: fadeIn 0.4s ease-out; /* Animación más rápida */
 }
